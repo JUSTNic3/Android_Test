@@ -40,4 +40,34 @@ class MainActivity : AppCompatActivity() {
         Log.w("My Log V", "onResume")
         Log.e("My Log V", "onResum")*/
     }
+
+    override fun onStop() {
+        super.onStop()
+        //Toast.makeText(applicationContext, "onStop", Toast.LENGTH_SHORT).show()
+        /*Log.i("MyLog", "onStop")
+        Log.d("My Log D", "onStop")
+        Log.v("My Log V", "onStop")
+        Log.w("My Log V", "onStop")
+        Log.e("My Log V", "onStop")*/
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        //Toast.makeText(applicationContext, "onRestart", Toast.LENGTH_SHORT).show()
+        /*Log.i("MyLog", "onRestart")
+        Log.d("My Log D", "onRestart")
+        Log.v("My Log V", "onRestart")
+        Log.w("My Log V", "onRestart")
+        Log.e("My Log V", "onRestart")*/
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //Toast.makeText(applicationContext, "onDestroy", Toast.LENGTH_SHORT).show()
+        /*Log.i("MyLog", "onDestroy")
+        Log.d("My Log D", "onDestroy")
+        Log.v("My Log V", "onDestroy")
+        Log.w("My Log V", "onDestroy")
+        Log.e("My Log V", "onDestroy")*/
+    }
 }
