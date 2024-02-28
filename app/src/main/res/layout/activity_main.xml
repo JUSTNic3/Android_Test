@@ -6,13 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?colorSecondary"
+            android:text="@string/_0"
+            android:textColor="?colorOnSecondary" />
+
+        <Button
+            android:id="@+id/buttonUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setOnClickListenerUp"
+            android:text="@string/up"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setOnClickListenerDown"
+            android:text="Down" />
+
+        <EditText
+            android:id="@+id/plainTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?colorSecondary"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="?colorOnSecondary"
+            android:textSize="20sp"
+            android:typeface="sans" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
