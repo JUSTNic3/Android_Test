@@ -21,4 +21,13 @@ class MainActivity : AppCompatActivity() {
         textView.text = "$brojac"
 
     }
+    override fun onStart() {
+        super.onStart()
+        //Toast.makeText(applicationContext, "onStart", Toast.LENGTH_SHORT).show()
+        /*Log.i("MyLog", "onStart")
+        Log.d("My Log D", "onStart")
+        Log.v("My Log V", "onStart")
+        Log.w("My Log V", "onStart")
+        Log.e("My Log V", "onStart")*/
+    }
 }
