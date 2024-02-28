@@ -20,6 +20,24 @@ class MainActivity : AppCompatActivity() {
         const val STEPS = "steps"
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.restore_counter -> {
+                brojac = 0
+                val steps = findViewById<TextView>(R.id.textViewCounter)
+                steps.text = "$brojac" //displays the value
+                true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main)
