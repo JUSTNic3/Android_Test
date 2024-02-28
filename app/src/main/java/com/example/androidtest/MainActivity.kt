@@ -87,4 +87,26 @@ class MainActivity : AppCompatActivity() {
         Log.w("My Log V", "onDestroy")
         Log.e("My Log V", "onDestroy")*/
     }
+    fun setOnClickListenerUp(view: View) {
+        brojac++
+        Log.i("brojac", "Stanje je $brojac")
+        val steps = findViewById<TextView>(R.id.textViewCounter) //promjeni to u neki broj
+        steps.text = "$brojac"
+        if (brojac == 10) {
+            val intent = Intent(this, SuccessActivity::class.java).apply {
+                putExtra("name", findViewById<TextView>(R.id.plainTextName).text.toString())
+            }
+            startActivity(intent)
+        }
+    }
+    fun setOnClickListenerDown(view: View) {
+        if (brojac > 0) {
+            brojac--
+            Log.i("brojac", "Stannje je $brojac")
+            val firstName = findViewById<TextView>(R.id.textViewCounter)
+            firstName.text = "$brojac"
+        } else {
+            Toast.makeText(applicationContext, "Greška", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
