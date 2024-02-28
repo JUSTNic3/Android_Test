@@ -30,4 +30,14 @@ class MainActivity : AppCompatActivity() {
         Log.w("My Log V", "onStart")
         Log.e("My Log V", "onStart")*/
     }
+
+    override fun onResume() {
+        super.onResume()
+        //Toast.makeText(applicationContext, "onResume", Toast.LENGTH_SHORT).show()
+        /*Log.i("MyLog", "onResume")
+        Log.d("My Log D", "onResume")
+        Log.v("My Log V", "onResume")
+        Log.w("My Log V", "onResume")
+        Log.e("My Log V", "onResum")*/
+    }
 }
