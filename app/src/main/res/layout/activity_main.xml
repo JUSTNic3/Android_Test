@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?colorSecondary"
-            android:text="@string/_0"
+            android:text="0"
             android:textColor="?colorOnSecondary" />
 
         <Button
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setOnClickListenerUp"
-            android:text="@string/up"
+            android:text="Up"
             android:textAlignment="center" />
 
         <Button
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:background="?colorSecondary"
             android:ems="10"
-            android:hint="@string/name"
+            android:hint="Name"
             android:inputType="text"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
