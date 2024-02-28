@@ -1,11 +1,24 @@
 package com.example.androidtest
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     var brojac = 0
+    private lateinit var sharedPreferences: SharedPreferences
+
+    companion object {
+        const val STEPS = "steps"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
@@ -16,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         Log.v("My Log V", "onCreate")
         Log.w("My Log V", "onCreate")
         Log.e("My Log V", "onCreate")*/
+
+        sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        // Restore
+        brojac = sharedPreferences.getInt(STEPS, 0)
 
         val textView = findViewById<TextView>(R.id.textViewCounter)
         textView.text = "$brojac"
