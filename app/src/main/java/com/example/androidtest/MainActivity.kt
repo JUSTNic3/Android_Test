@@ -1,5 +1,6 @@
 package com.example.androidtest
 
+
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+
 class MainActivity : AppCompatActivity() {
     var brojac = 0
     private lateinit var sharedPreferences: SharedPreferences
@@ -19,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val STEPS = "steps"
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater : MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
@@ -37,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main)
@@ -47,15 +47,15 @@ class MainActivity : AppCompatActivity() {
         Log.v("My Log V", "onCreate")
         Log.w("My Log V", "onCreate")
         Log.e("My Log V", "onCreate")*/
-
         sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
         // Restore
         brojac = sharedPreferences.getInt(STEPS, 0)
 
+        // Update Text
         val textView = findViewById<TextView>(R.id.textViewCounter)
         textView.text = "$brojac"
-
     }
+
     override fun onStart() {
         super.onStart()
         //Toast.makeText(applicationContext, "onStart", Toast.LENGTH_SHORT).show()
@@ -74,6 +74,22 @@ class MainActivity : AppCompatActivity() {
         Log.v("My Log V", "onResume")
         Log.w("My Log V", "onResume")
         Log.e("My Log V", "onResum")*/
+    }
+
+    override fun onPause() {
+        super.onPause()
+        //Toast.makeText(applicationContext, "onPause", Toast.LENGTH_SHORT).show()
+        // brojac u sharedPreferences
+        val textView = findViewById<TextView>(R.id.textViewCounter)
+        val brojacValue = textView.text.toString().toIntOrNull() ?: 0
+        val editor = sharedPreferences.edit()
+        editor.putInt(STEPS, brojacValue)
+        editor.apply()
+        /*Log.i("MyLog", "onPause")
+        Log.d("My Log D", "onPause")
+        Log.v("My Log V", "onPause")
+        Log.w("My Log V", "onPause")
+        Log.e("My Log V", "onPause")*/
     }
 
     override fun onStop() {
@@ -105,6 +121,7 @@ class MainActivity : AppCompatActivity() {
         Log.w("My Log V", "onDestroy")
         Log.e("My Log V", "onDestroy")*/
     }
+
     fun setOnClickListenerUp(view: View) {
         brojac++
         Log.i("brojac", "Stanje je $brojac")
@@ -117,6 +134,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     fun setOnClickListenerDown(view: View) {
         if (brojac > 0) {
             brojac--
@@ -127,4 +145,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Greška", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 }

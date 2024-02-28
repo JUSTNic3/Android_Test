@@ -27,7 +27,7 @@
             android:id="@+id/buttonShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SHARE VIA SMS"
+            android:text="@string/share_via_sms"
             android:onClick="setOnClickListenerShare"
             app:icon="@android:drawable/ic_menu_send"
             app:iconTint="#00BCD4"
