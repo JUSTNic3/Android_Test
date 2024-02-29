@@ -2,5 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
         <item
             android:id="@+id/context_reset"
-            android:title="@string/resetiraj_broj_koraka"/>
+            android:title="@string/step_reset"/>
 </menu>

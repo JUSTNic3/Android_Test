@@ -69,14 +69,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreateContextMenu(menu, v, menuInfo)
         menuInflater.inflate(R.menu.menu_float, menu)
         if (menu != null) {
-            menu.setHeaderTitle("Odaberi!")
+            menu.setHeaderTitle(getString(R.string.choose))
         }
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.context_reset ->{
-                Toast.makeText(this, "Vrijednost je obrisana", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.the_score_has_been_deleted), Toast.LENGTH_SHORT).show()
                 brojac = 0
                 val steps = findViewById<TextView>(R.id.textViewCounter)
                 steps.text = "$brojac" //displays the value
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         Log.d("My Log D", "onResume")
         Log.v("My Log V", "onResume")
         Log.w("My Log V", "onResume")
-        Log.e("My Log V", "onResum")*/
+        Log.e("My Log V", "onResume")*/
     }
 
     override fun onPause() {
@@ -159,7 +160,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setOnClickListenerUp(view: View) {
         brojac++
-        Log.i("brojac", "Stannje je $brojac")
+        Log.i("brojac", "Stanje je $brojac")
         val steps = findViewById<TextView>(R.id.textViewCounter) //promjeni to u neki broj
         steps.text = "$brojac"
         if (brojac == 10) {
@@ -173,11 +174,11 @@ class MainActivity : AppCompatActivity() {
     fun setOnClickListenerDown(view: View) {
         if (brojac > 0) {
             brojac--
-            Log.i("brojac", "Stannje je $brojac")
+            Log.i("brojac", "Stanje $brojac")
             val firstName = findViewById<TextView>(R.id.textViewCounter)
             firstName.text = "$brojac"
         } else {
-            Toast.makeText(applicationContext, "Greška", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, getString(R.string.error), Toast.LENGTH_SHORT).show()
         }
     }
 

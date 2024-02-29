@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fit Runner</string>
+    <string name="steps">Koraci</string>
+    <string name="share_via_sms">Dijeli preko sms</string>
+    <string name="_0">0</string>
+    <string name="down">Dolje</string>
+    <string name="name">Ime</string>
+    <string name="up">Gore</string>
+    <string name="choose">Biraj</string>
+    <string name="the_score_has_been_deleted">Vrijednost izbrisana</string>
+    <string name="error">Greska</string>
+    <string name="step_reset">Resetiraj korake</string>
+    <string name="reset">Resetiraj</string>
+    <string name="croatian">Hrvatski</string>
+    <string name="english">Engleski</string>
+</resources>

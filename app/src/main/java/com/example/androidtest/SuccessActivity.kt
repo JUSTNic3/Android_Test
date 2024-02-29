@@ -14,14 +14,14 @@ class SuccessActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_success)
         val name: String? = intent.getStringExtra("name")
-        val message = "Good job $name! You made 10 steps"
+        val message = getString(R.string.good_job_you_made_10_steps, name)
         val textShare = findViewById<TextView>(R.id.textShare)
         textShare.text = message
     }
     fun setOnClickListenerShare(view: View) {
         val name: String? = intent.getStringExtra("name")
         val smsNumber: String = "0953594946"
-        val smsText: String = "Good job $name! You made 10 steps"
+        val smsText: String = getString(R.string.good_job_you_made_10_steps, name)
         val uri = Uri.parse("smsto:$smsNumber")
         val intent = Intent(Intent.ACTION_SENDTO, uri)
         intent.putExtra("sms_body", smsText)
