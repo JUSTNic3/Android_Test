@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         const val STEPS = "steps"
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater : MenuInflater = menuInflater
+        val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -54,6 +55,40 @@ class MainActivity : AppCompatActivity() {
         // Update Text
         val textView = findViewById<TextView>(R.id.textViewCounter)
         textView.text = "$brojac"
+        //context menu - long press
+        val textCounter = findViewById<TextView>(R.id.textViewCounter)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
+        registerForContextMenu(textView)
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.menu_float, menu)
+        if (menu != null) {
+            menu.setHeaderTitle("Odaberi!")
+        }
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.context_reset ->{
+                Toast.makeText(this, "Vrijednost je obrisana", Toast.LENGTH_SHORT).show()
+                brojac = 0
+                val steps = findViewById<TextView>(R.id.textViewCounter)
+                steps.text = "$brojac" //displays the value
+                val textView = findViewById<TextView>(R.id.textViewCounter)
+                val brojacValue = textView.text.toString().toIntOrNull() ?: 0
+                val editor = sharedPreferences.edit()
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+        super.onContextItemSelected(item)
+
     }
 
     override fun onStart() {
@@ -124,7 +159,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setOnClickListenerUp(view: View) {
         brojac++
-        Log.i("brojac", "Stanje je $brojac")
+        Log.i("brojac", "Stannje je $brojac")
         val steps = findViewById<TextView>(R.id.textViewCounter) //promjeni to u neki broj
         steps.text = "$brojac"
         if (brojac == 10) {

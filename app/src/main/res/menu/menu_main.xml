@@ -5,7 +5,7 @@
         android:id="@+id/restore_counter"
         android:title="@string/resetiraj"
         android:icon="@drawable/baseline_settings_backup_restore_24"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom"/>/>
     <item
         android:id="@+id/croatian"
         android:title="Hrvatski" />
